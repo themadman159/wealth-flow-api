@@ -2,8 +2,8 @@ package userhandler
 
 import (
 	"go-api/types"
+	"go-api/utils/validateutil"
 
-	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,8 +14,8 @@ func (h *UserHandler) CreateUser(c *fiber.Ctx) error {
 		return h.Response.BadRequest(c, "Invalid request payload")
 	}
 
-	validate := validator.New()
-	if err := validate.Struct(req); err != nil {
+	err := validateutil.Validate(req)
+	if err != nil {
 		return h.Response.BadRequest(c, err.Error())
 	}
 
