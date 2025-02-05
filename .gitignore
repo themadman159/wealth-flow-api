@@ -1,0 +1,8 @@
+.env
+docker-compose.yaml
+
+go.sum
+go.mod
+
+mysql_data
+
