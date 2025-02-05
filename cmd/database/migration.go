@@ -1,7 +1,7 @@
 package database
 
 import (
-	model "go-api/pkg/model/users"
+	model "go-api/pkg/model"
 
 	"gorm.io/gorm"
 )

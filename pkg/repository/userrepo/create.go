@@ -2,7 +2,7 @@ package userrepo
 
 import (
 	"errors"
-	model "go-api/pkg/model/users"
+	model "go-api/pkg/model"
 
 	"gorm.io/gorm"
 )
@@ -25,6 +25,11 @@ func (r *UserRepository) CreateUser(username, password, email string) error {
 		Username: username,
 		Password: password,
 		Email:    email,
+		DefaultBy: model.DefaultBy{
+			CreateBy: 0,
+			UpdateBy: 0,
+			DeleteBy: 0,
+		},
 	}
 
 	if err := r.Database.Model(&model.User{}).Create(&user).Error; err != nil {
