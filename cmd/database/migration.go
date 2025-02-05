@@ -1,7 +1,7 @@
 package database
 
 import (
-	model "go-api/pkg/model/examplemodel"
+	model "go-api/pkg/model/users"
 
 	"gorm.io/gorm"
 )
@@ -9,7 +9,7 @@ import (
 func Migration(db *gorm.DB) error {
 
 	models := []interface{}{
-		&model.ExampleModel{},
+		&model.User{},
 	}
 
 	for _, model := range models {
