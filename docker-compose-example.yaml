@@ -21,6 +21,8 @@ services:
       - db
     environment:
       PMA_HOST: db
+      PMA_USER: your_username
+      PMA_PASSWORD: your_password
       MYSQL_ROOT_PASSWORD: your_root_password
     ports:
       - "8080:80"

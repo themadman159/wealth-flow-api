@@ -1,10 +1,12 @@
 package jwtutil
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"time"
 
+	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
 )
 
@@ -61,4 +63,19 @@ func VerifyToken(tokenString string) (*CustomClaims, error) {
 	}
 
 	return claims, nil
+}
+
+func GetUsernameFromToken(c *fiber.Ctx) (string, error) {
+
+	userData := c.Locals("users")
+	if userData == nil {
+		return "", errors.New("user not found in context")
+	}
+
+	user, ok := userData.(*CustomClaims)
+	if !ok {
+		return "", errors.New("invalid user data format")
+	}
+
+	return user.Username, nil
 }

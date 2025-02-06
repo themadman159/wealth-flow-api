@@ -1,7 +1,7 @@
 package model
 
 type DefaultBy struct {
-	CreateBy int `gorm:"column:created_by"`
-	UpdateBy int `gorm:"column:updated_by"`
-	DeleteBy int `gorm:"column:deleted_by"`
+	CreateBy uint `gorm:"column:created_by"`
+	UpdateBy uint `gorm:"column:updated_by"`
+	DeleteBy uint `gorm:"column:deleted_by"`
 }

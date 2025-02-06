@@ -10,6 +10,7 @@ func Migration(db *gorm.DB) error {
 
 	models := []interface{}{
 		&model.User{},
+		&model.Transaction{},
 	}
 
 	for _, model := range models {
