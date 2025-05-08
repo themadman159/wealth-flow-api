@@ -9,7 +9,7 @@ import (
 
 type ITransactionService interface {
 	Create(username string, req types.TransactionRequest) error
-	GetAll(username string) (*types.TransactionGetAllResponse, error)
+	GetAll(username, searchType, searchCategory string, year, month int) (*types.TransactionGetAllResponse, error)
 	Delete(username string, id int) error
 }
 

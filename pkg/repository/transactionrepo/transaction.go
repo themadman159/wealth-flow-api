@@ -9,7 +9,7 @@ import (
 
 type ITransactionRepository interface {
 	Create(username string, req types.TransactionRequest) error
-	GetAll(username string) ([]model.Transaction, error)
+	GetAll(username, searchType, searchCategory string, year, month int) ([]model.Transaction, error)
 	Delete(username string, id int) error
 }
 
