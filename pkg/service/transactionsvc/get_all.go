@@ -5,9 +5,9 @@ import (
 	"go-api/types"
 )
 
-func (s *TransactionService) GetAll(username string) (*types.TransactionGetAllResponse, error) {
+func (s *TransactionService) GetAll(username, searchType, searchCategory string, year, month int) (*types.TransactionGetAllResponse, error) {
 
-	transcaction, err := s.TransactionRepository.GetAll(username)
+	transcaction, err := s.TransactionRepository.GetAll(username, searchType, searchCategory, year, month)
 	if err != nil {
 		return nil, err
 	}
